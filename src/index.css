@@ -1,0 +1,71 @@
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #132238;
+  background: #eef3f8;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; min-height: 100vh; }
+button, input { font: inherit; }
+button { cursor: pointer; }
+
+.app-shell { min-height: 100vh; padding: 28px; background: linear-gradient(135deg, #eef4fb 0%, #f8fbff 100%); color: #132238; }
+
+.topbar { max-width: 1180px; margin: 0 auto 18px; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-weight: 700; }
+.brand-dot { width: 10px; height: 10px; display: inline-block; border-radius: 50%; background: #2563eb; margin-right: 8px; }
+
+.cart-wrapper { max-width: 1180px; margin: 0 auto; background: rgba(255,255,255,.9); border: 1px solid rgba(148,163,184,.22); border-radius: 24px; box-shadow: 0 18px 60px rgba(15,23,42,.10); overflow: hidden; }
+.cart-header { padding: 30px 32px 20px; border-bottom: 1px solid #e5e7eb; }
+.cart-header h1 { margin: 4px 0 0; font-size: clamp(26px, 4vw, 38px); }
+.eyebrow { margin: 0; text-transform: uppercase; letter-spacing: .13em; font-size: 12px; font-weight: 800; color: #2563eb; }
+.cart-content { padding: 28px 32px 34px; }
+.layout-grid { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(280px, .8fr); gap: 24px; align-items: start; }
+
+.cart-list { display: grid; gap: 14px; }
+.cart-item { display: grid; grid-template-columns: 54px 1fr auto auto auto; align-items: center; gap: 16px; padding: 16px; background: #fff; border: 1px solid #e6eaf0; border-radius: 18px; }
+.product-mark { width: 54px; height: 54px; border-radius: 14px; display: grid; place-items: center; font-weight: 900; font-size: 22px; color: #1d4ed8; background: #dbeafe; }
+.product-info h3 { margin: 0 0 4px; }
+.product-info p { margin: 0; color: #64748b; }
+.quantity-controls { display: inline-flex; align-items: center; border: 1px solid #dbe1ea; border-radius: 12px; overflow: hidden; }
+.quantity-controls button { border: 0; background: transparent; width: 36px; height: 36px; font-size: 20px; }
+.quantity-controls button:disabled { opacity: .35; cursor: not-allowed; }
+.quantity-controls span { min-width: 36px; text-align: center; font-weight: 800; }
+.line-total { min-width: 110px; text-align: right; }
+.remove-btn { border: 0; padding: 9px 12px; border-radius: 10px; background: #fee2e2; color: #b91c1c; font-weight: 700; }
+
+.coupon-card, .summary-card { margin-top: 18px; background: #fff; border: 1px solid #e6eaf0; border-radius: 18px; padding: 20px; }
+.coupon-card h2, .summary-card h2 { margin: 0 0 6px; }
+.coupon-card p { margin: 0 0 14px; color: #64748b; }
+.coupon-row { display: flex; gap: 10px; }
+.coupon-row input { flex: 1; min-width: 0; padding: 12px 14px; border-radius: 12px; border: 1px solid #cfd8e5; outline: none; }
+.coupon-row input:focus { border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37,99,235,.12); }
+.coupon-row button { border: 0; border-radius: 12px; padding: 12px 16px; background: #2563eb; color: #fff; font-weight: 800; }
+.status-message { margin-top: 12px !important; font-weight: 700; color: #2563eb !important; }
+
+.summary-card { margin-top: 0; position: sticky; top: 24px; }
+.summary-line, .summary-total { display: flex; justify-content: space-between; gap: 20px; padding: 14px 0; border-bottom: 1px solid #e8edf3; }
+.discount-line { color: #047857; }
+.summary-total { font-size: 20px; border-bottom: 0; padding-top: 20px; }
+.checkout-btn { width: 100%; margin-top: 18px; border: 0; border-radius: 14px; padding: 14px 16px; background: #0f172a; color: #fff; font-weight: 900; }
+.empty-state { text-align: center; padding: 60px 20px; }
+.empty-state p { color: #64748b; }
+
+@media (max-width: 850px) {
+  .layout-grid { grid-template-columns: 1fr; }
+  .summary-card { position: static; }
+  .cart-item { grid-template-columns: 48px 1fr auto; }
+  .quantity-controls { grid-column: 2; justify-self: start; }
+  .line-total { grid-column: 3; grid-row: 2; }
+  .remove-btn { grid-column: 3; grid-row: 1; }
+}
+
+@media (max-width: 560px) {
+  .app-shell { padding: 14px; }
+  .cart-content, .cart-header { padding-left: 18px; padding-right: 18px; }
+  .topbar { align-items: stretch; flex-direction: column; }
+  .cart-item { grid-template-columns: 48px 1fr; }
+  .quantity-controls, .line-total, .remove-btn { grid-column: 2; grid-row: auto; justify-self: start; }
+  .coupon-row { flex-direction: column; }
+}
